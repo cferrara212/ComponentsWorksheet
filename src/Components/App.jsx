@@ -5,6 +5,7 @@ import NameDisplay from './NameDisplay/NameDisplay'
 import NamesList from './NamesList/NamesList'
 import AlertUser from './AlertUser/AlertUser';
 import HeroesTable from './HeroesTable/HeroesTable';
+import SuperHeroCreateForm from './SuperHeroCreateForm/SuperHeroCreateForm';
 
 class App extends Component{
     
@@ -63,6 +64,14 @@ class App extends Component{
         })
     }
 
+
+    createSuperhero = (newHero) =>{
+        console.log('from superheroes creator', newHero)
+        this.state.superheroes.push(newHero);
+        
+    }
+
+
     render (){
         return(
             <div className="container-fluid">
@@ -71,6 +80,7 @@ class App extends Component{
                 <NamesList name={this.state.names} />
                 <AlertUser alert={this.alertUser} />
                 <HeroesTable table={this.renderSuperHeroTable} header={this.renderHeroesHeader} />
+                <SuperHeroCreateForm createHero={this.createSuperhero} heroesLength={this.state.superheroes}/>
             </div> 
         )
     }
