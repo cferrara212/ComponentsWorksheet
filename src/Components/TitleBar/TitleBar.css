@@ -1,5 +1,5 @@
 .titlebar-nav{
-    background-color: grey;
+    background-color: #49439b;
     width: 100%;
 
 }
@@ -7,4 +7,5 @@
 h1 {
     padding-bottom: 0.2em;
     padding-left: 1em;
+    color: white;
 }

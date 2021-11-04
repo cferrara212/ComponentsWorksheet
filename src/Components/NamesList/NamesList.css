@@ -1,0 +1,16 @@
+.main {
+    text-align: center;
+
+  }
+
+  .name {
+    color: midnightblue;
+    text-align: center;
+    font-family: arial, sans-serif;
+    padding: 5px;
+  }
+  
+  .list {
+      color: midnightblue;
+
+  }
