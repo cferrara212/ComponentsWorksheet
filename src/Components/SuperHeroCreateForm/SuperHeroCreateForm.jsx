@@ -7,10 +7,10 @@ class SuperHeroCreateForm extends Component {
             this.state = {
                 superheroes:[
                 {
-                    superheroId: 0,
+                    superheroId: this.props.heroesLength,
                     name: '',
                     primaryAbility: '',
-                    secondarAbility: ''
+                    secondaryAbility: ''
                 },
             ]
         }
@@ -39,7 +39,7 @@ class SuperHeroCreateForm extends Component {
                 <label>Primary Ability</label>
                 <input type="text" name="primaryAbility" onChange={this.handleChange} value={this.state.superheroes.primaryAbility} />
                 <label>Secondary Ability</label>
-                <input type="text" name="secondaryAbility" onChange={this.handleChange} value={this.state.superheroes.secondarAbility} />
+                <input type="text" name="secondaryAbility" onChange={this.handleChange} value={this.state.superheroes.secondaryAbility} />
                 <button type="submit" >Add Super Hero</button>
             </form>
             </div>

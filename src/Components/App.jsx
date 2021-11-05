@@ -6,6 +6,8 @@ import NamesList from './NamesList/NamesList'
 import AlertUser from './AlertUser/AlertUser';
 import HeroesTable from './HeroesTable/HeroesTable';
 import SuperHeroCreateForm from './SuperHeroCreateForm/SuperHeroCreateForm';
+import GetJokes from './GetJokes/GetJokes';
+import GetChuckFacts from './ChuckNorrisFacts/ChuckNorrisFacts';
 
 class App extends Component{
     
@@ -20,19 +22,19 @@ class App extends Component{
                     superheroId: 1,
                     name: 'Batman',
                     primaryAbility: 'Wealthy',
-                    secondarAbility: 'Rich'
+                    secondaryAbility: 'Rich'
                 },
                 {
                     superheroId: 2,
                     name: 'Superman',
                     primaryAbility: 'Super strength',
-                    secondarAbility: 'Fly'
+                    secondaryAbility: 'Fly'
                 },
                 {
                     superheroId: 3,
                     name: 'Spiderman',
                     primaryAbility: 'Spider senses',
-                    secondarAbility: 'Shoots web'
+                    secondaryAbility: 'Shoots web'
                 }
             ],
         };
@@ -45,13 +47,13 @@ class App extends Component{
 
     renderSuperHeroTable = () =>{
         return this.state.superheroes.map((hero, index) => {
-            const {superheroId, name, primaryAbility, secondarAbility} = hero
+            const {superheroId, name, primaryAbility, secondaryAbility} = hero
             return (
                 <tr key="superheroID">
                     <td>{superheroId}</td>
                     <td>{name}</td>
                     <td>{primaryAbility}</td>
-                    <td>{secondarAbility}</td>
+                    <td>{secondaryAbility}</td>
                 </tr>
             )
         })
@@ -68,6 +70,7 @@ class App extends Component{
     createSuperhero = (newHero) =>{
         console.log('from superheroes creator', newHero)
         this.state.superheroes.push(newHero);
+        this.setState({...this.state.superheroes, newHero})
         
     }
 
@@ -79,8 +82,10 @@ class App extends Component{
                 <NameDisplay firstName={this.state.firstName} lastName={this.state.lastName} />
                 <NamesList name={this.state.names} />
                 <AlertUser alert={this.alertUser} />
+                <SuperHeroCreateForm createHero={this.createSuperhero} heroesLength={this.state.superheroes.length}/>
                 <HeroesTable table={this.renderSuperHeroTable} header={this.renderHeroesHeader} />
-                <SuperHeroCreateForm createHero={this.createSuperhero} heroesLength={this.state.superheroes}/>
+                <GetJokes />
+                <GetChuckFacts />
             </div> 
         )
     }
